@@ -1,0 +1,159 @@
+/* 练字帖：工作台优先的青绿主题。字帖纸张本身仍由打印样式控制。 */
+
+body:not(.phone) {
+  background:
+    radial-gradient(circle at 85% 4%, #CFE8E7 0, transparent 24%),
+    var(--bg);
+}
+
+body:not(.phone) .paper-grain { opacity: .025; }
+body:not(.phone) .section-title { font-family: var(--font-ui); font-weight: 760; letter-spacing: -.035em; }
+body:not(.phone) .section-head { align-items: center; }
+body:not(.phone) .section-desc { color: var(--ink-2); }
+
+/* 介绍区缩短，让编辑与预览更早进入视野。 */
+body:not(.phone) .hero {
+  width: calc(100% - 64px);
+  max-width: 1360px;
+  margin: 30px auto 0;
+  padding: 32px 44px;
+  border: 1px solid #FFFFFF2B;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 86% 25%, #73C8BC55 0, transparent 31%),
+    linear-gradient(125deg, #153B4B 0%, #17656C 100%);
+  box-shadow: 0 16px 36px #1B53591C;
+  color: #fff;
+  overflow: hidden;
+}
+body:not(.phone) .hero-grid { grid-template-columns: minmax(0, 1fr) 260px; gap: 26px; }
+body:not(.phone) .hero-copy h1 {
+  margin-top: 13px;
+  font-size: clamp(34px, 3.6vw, 52px);
+  line-height: 1.22;
+  font-weight: 600;
+}
+body:not(.phone) .hero-copy h1 em { color: #F3CE8E; }
+body:not(.phone) .hero-copy h1 em::after { background: #F3CE8E; opacity: .12; }
+body:not(.phone) .hero-sub { max-width: 36em; margin-top: 12px; color: #E2F1EE; font-size: 14px; line-height: 1.75; }
+body:not(.phone) .hero-cta { margin-top: 20px; }
+body:not(.phone) .hero .btn-primary { background: #F3CE8E; color: #193B46; box-shadow: 0 6px 20px #071D2533; }
+body:not(.phone) .hero .btn-primary:hover { background: #FFE0A8; }
+body:not(.phone) .hero .btn-ghost { background: #FFFFFF1A; color: #fff; border-color: #FFFFFF57; box-shadow: none; }
+body:not(.phone) .hero .btn-ghost:hover { background: #FFFFFF2B; }
+body:not(.phone) .hero .eyebrow { color: #D8F2E7; background: #FFFFFF15; border-color: #FFFFFF35; box-shadow: none; }
+body:not(.phone) .hero .eyebrow .dot { background: #F3CE8E; box-shadow: none; }
+body:not(.phone) .hero-stats { margin-top: 24px; padding-top: 14px; gap: 25px; border-color: #FFFFFF38; }
+body:not(.phone) .hero-stats b { font-family: var(--font-ui); font-size: 19px; font-weight: 750; }
+body:not(.phone) .hero-stats span { color: #C5E1DD; }
+body:not(.phone) .hero-visual { height: 296px; }
+body:not(.phone) .hero-visual .stack { width: 176px; height: 256px; }
+body:not(.phone) .hero-visual .sheet { padding: 11px; border-radius: 5px; }
+body:not(.phone) .hero-badge { right: 0; bottom: 4px; color: #193B46; background: #fff; border-color: #fff; }
+
+/* 编辑区和内容卡片统一为工作台组件。 */
+body:not(.phone) .studio,
+body:not(.phone) .gallery,
+body:not(.phone) .guide { max-width: 1360px; padding-left: 32px; padding-right: 32px; }
+body:not(.phone) .studio { padding-top: 34px; }
+body:not(.phone) .studio-grid { grid-template-columns: 342px minmax(0, 1fr); gap: 18px; }
+body:not(.phone) .panel { border-radius: 18px; box-shadow: var(--sh-2); }
+body:not(.phone) .panel-top { background: var(--surface); }
+body:not(.phone) .tpl-current { background: var(--surface-2); box-shadow: none; }
+body:not(.phone) .block-title { color: var(--accent-2); }
+body:not(.phone) .content-input { background: #FBFDFD; }
+body:not(.phone) .stage { border-radius: 18px; box-shadow: var(--sh-2); }
+body:not(.phone) .stage-bar { background: var(--surface); }
+body:not(.phone) .stage-canvas {
+  background-color: var(--stage-bg);
+  background-image: linear-gradient(#FFFFFF50 1px, transparent 1px), linear-gradient(90deg, #FFFFFF50 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+body:not(.phone) .tpl-card,
+body:not(.phone) .guide-card { border-radius: 16px; }
+body:not(.phone) .tpl-card::before { background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 0%), #147F831C, transparent 60%); }
+body:not(.phone) .guide-card .step { font-family: var(--font-ui); opacity: .6; }
+
+@media (min-width: 1101px) {
+  body:not(.phone) .topbar {
+    position: fixed; inset: 0 auto 0 0; width: 220px;
+    background: #123643; border-right: 1px solid #FFFFFF21;
+    box-shadow: 10px 0 30px #12364312;
+  }
+  body:not(.phone) .topbar-inner {
+    width: 100%; height: 100%; padding: 25px 15px 20px;
+    flex-direction: column; align-items: stretch; gap: 0;
+  }
+  body:not(.phone) .brand { margin: 0; padding: 8px 10px 23px; border-bottom: 1px solid #FFFFFF2A; }
+  body:not(.phone) .brand-mark { background: #E7F5ED; color: #176B70; }
+  body:not(.phone) .brand-text strong { color: #fff; }
+  body:not(.phone) .brand-text em { color: #A9CCC9; font-size: 8px; letter-spacing: .06em; }
+  body:not(.phone) .topnav { flex-direction: column; gap: 5px; margin: 31px 0 auto; }
+  body:not(.phone) .topnav::before { content: '工作空间'; padding: 0 12px 9px; color: #95B9B9; font-size: 11px; letter-spacing: .14em; }
+  body:not(.phone) .topnav a { padding: 11px 14px; color: #BED7D5; border-radius: 11px; }
+  body:not(.phone) .topnav a:hover { background: #FFFFFF18; color: #fff; }
+  body:not(.phone) .topnav a.is-active { color: #fff; background: #FFFFFF20; }
+  body:not(.phone) .topnav a.is-active::after { left: 0; right: auto; top: 10px; bottom: 10px; width: 3px; height: auto; background: #F3CE8E; }
+  body:not(.phone) .topbar-actions { flex-direction: column; align-items: stretch; gap: 8px; }
+  body:not(.phone) .topbar-actions #btnResetTop { background: transparent; border-color: #FFFFFF2B; color: #D5ECE8; box-shadow: none; }
+  body:not(.phone) .topbar-actions #btnPrintTop { color: #173A44; background: #F3CE8E; box-shadow: none; }
+  body:not(.phone) main { margin-left: 220px; }
+  body:not(.phone) .panel { top: 20px; max-height: calc(100vh - 40px); }
+}
+
+@media (max-width: 1100px) {
+  body:not(.phone) .topbar { background: #123643; border-bottom-color: #FFFFFF1F; }
+  body:not(.phone) .brand-mark { background: #E7F5ED; color: #176B70; }
+  body:not(.phone) .brand-text strong { color: #fff; }
+  body:not(.phone) .brand-text em { color: #A9CCC9; }
+  body:not(.phone) .topnav a { color: #C2DCD9; }
+  body:not(.phone) .topnav a.is-active { color: #fff; }
+  body:not(.phone) .topbar-actions #btnResetTop { background: #FFFFFF1A; border-color: #FFFFFF35; color: #fff; }
+  body:not(.phone) .hero { width: calc(100% - 36px); margin-top: 18px; }
+  body:not(.phone) .hero-grid { grid-template-columns: minmax(0, 1fr) 220px; }
+  body:not(.phone) .hero-visual { height: 264px; }
+  body:not(.phone) .hero-visual .stack { width: 158px; height: 230px; }
+  body:not(.phone) .studio-grid { grid-template-columns: 1fr; }
+  body:not(.phone) .panel { position: static; max-height: none; }
+}
+
+@media (max-width: 720px) {
+  body:not(.phone) .hero { padding: 30px 24px; border-radius: 18px; }
+  body:not(.phone) .hero-grid { grid-template-columns: 1fr; }
+  body:not(.phone) .hero-visual { display: none; }
+  body:not(.phone) .hero-copy h1 { font-size: clamp(34px, 8vw, 44px); }
+  body:not(.phone) .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  body:not(.phone) .hero-stats span { font-size: 10px; }
+  body:not(.phone) .studio,
+  body:not(.phone) .gallery,
+  body:not(.phone) .guide { padding-left: 18px; padding-right: 18px; }
+  body:not(.phone) .section-head { align-items: flex-start; }
+}
+
+@media (max-width: 450px) {
+  body:not(.phone) .topbar-inner { gap: 7px; padding: 0 12px; }
+  body:not(.phone) .brand-text strong { font-size: 14px; }
+  body:not(.phone) .topbar-actions { gap: 5px; }
+  body:not(.phone) .topbar-actions #btnResetTop { display: none; }
+  body:not(.phone) .topbar-actions #btnPrintTop { padding: 0 9px; font-size: 11px; }
+  body:not(.phone) .hero-stats { grid-template-columns: repeat(2, 1fr); row-gap: 12px; }
+}
+
+/* 手机版外壳共用配色，保留原有抽屉与打印交互。 */
+body.phone { background: var(--bg); }
+body.phone .phone-main { background: var(--stage-bg); }
+body.phone .phone-tabbar { background: color-mix(in srgb, var(--surface) 88%, transparent); }
+body.phone .phone-sheet { background: color-mix(in srgb, var(--surface) 94%, transparent); }
+body.phone .sheet-content .pgroup,
+body.phone .sheet-content .block { background: var(--surface-2); border-color: var(--border); }
+body.phone .ptab.is-active { background: var(--accent-soft); }
+
+[data-theme="dark"] body:not(.phone) { background: var(--bg); }
+[data-theme="dark"] body:not(.phone) .content-input { background: var(--surface-2); }
+[data-theme="dark"] .btn-primary { color: #102C31; }
+
+@media print {
+  body:not(.phone) main { margin-left: 0 !important; }
+  body:not(.phone) .hero,
+  body:not(.phone) .studio { box-shadow: none !important; }
+}

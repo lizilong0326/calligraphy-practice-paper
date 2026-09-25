@@ -1,0 +1,87 @@
+/* 多页面入口、内容页和窄屏导航。 */
+body.page-studio:not(.phone) .gallery { display: none !important; }
+
+body.page-home .hero {
+  min-height: min(68svh, 600px);
+  display: grid;
+  align-items: center;
+}
+body.page-home .hero-grid { width: 100%; }
+body.page-home .hero-visual { height: 348px; }
+body.page-home .hero-visual .stack { width: 210px; height: 308px; }
+
+.home-paths {
+  width: calc(100% - 64px);
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 28px 0 64px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.path-card {
+  min-height: 216px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--sh-1);
+  transition: transform .2s var(--ease), box-shadow .2s var(--ease), border-color .2s var(--ease);
+}
+.path-card:hover { transform: translateY(-4px); box-shadow: var(--sh-2); border-color: var(--accent); }
+.path-number { color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: .1em; }
+.path-card h2 { margin-top: 18px; font-size: 21px; line-height: 1.35; }
+.path-card p { margin-top: 8px; color: var(--ink-2); font-size: 13px; line-height: 1.7; }
+.path-link { margin-top: auto; padding-top: 18px; color: var(--accent); font-size: 13px; font-weight: 650; }
+
+body.page-gallery .gallery,
+body.page-guide .guide {
+  padding-top: 48px;
+  padding-bottom: 72px;
+  min-height: calc(100svh - 200px);
+}
+body.page-guide .guide-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+@media (max-width: 1100px) {
+  .home-paths { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  body:not(.phone) .topbar-inner {
+    height: auto;
+    min-height: var(--topbar-h);
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 0;
+    padding-top: 7px;
+  }
+  body:not(.phone) .topnav {
+    order: 3;
+    display: flex;
+    flex: 0 0 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 2px;
+    padding: 1px 0 7px;
+    scrollbar-width: none;
+  }
+  body:not(.phone) .topnav::-webkit-scrollbar { display: none; }
+  body:not(.phone) .topnav a { flex: none; padding: 6px 10px; font-size: 12px; }
+  body:not(.phone) .topnav a.is-active::after { left: 10px; right: 10px; bottom: 0; }
+  body:not(.phone) .nav-create { display: none; }
+  body.page-home .hero { min-height: 0; }
+  .home-paths { width: auto; margin: 0 18px; padding: 4px 0 38px; gap: 10px; }
+  .path-card { min-height: 184px; padding: 16px; border-radius: 14px; }
+  .path-card h2 { margin-top: 12px; font-size: 18px; }
+  .path-card p { font-size: 12px; }
+  body.page-gallery .gallery,
+  body.page-guide .guide { padding-top: 30px; }
+  body.page-guide .guide-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .home-paths { grid-template-columns: 1fr; }
+  .path-card { min-height: 0; }
+}

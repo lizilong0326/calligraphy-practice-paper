@@ -1,0 +1,43 @@
+/* 字帖字形使用本地 Web 字体，离线预览与打印保持一致。 */
+@font-face {
+  font-family: 'CB WenKai';
+  src: url('../fonts/LXGWWenKai-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CB XingShu';
+  src: url('../fonts/ZhiMangXing-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CB SongTi';
+  src: url('../fonts/ZCOOLXiaoWei-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CB ShuFa';
+  src: url('../fonts/LongCang-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CB YuanTi';
+  src: url('../fonts/Huninn-Regular.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CB Handwriting';
+  src: url('../fonts/Caveat.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}

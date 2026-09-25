@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="320" viewBox="0 0 1200 320" role="img" aria-labelledby="title desc">
+  <title id="title">Calligraphy Practice Paper</title>
+  <desc id="desc">Dark teal banner with a calligraphy practice sheet illustration</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#102f3a"/>
+      <stop offset=".52" stop-color="#1d4d57"/>
+      <stop offset="1" stop-color="#276a70"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#fffdf6"/>
+      <stop offset="1" stop-color="#f3eee1"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#091e24" flood-opacity=".3"/>
+    </filter>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#ffffff" opacity=".10"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="320" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="320" rx="24" fill="url(#dots)"/>
+  <circle cx="1030" cy="20" r="260" fill="#8bc7ba" opacity=".07"/>
+  <circle cx="840" cy="350" r="230" fill="#eecb8e" opacity=".06"/>
+
+  <rect x="58" y="52" width="166" height="27" rx="13.5" fill="#e8ce9d" opacity=".16"/>
+  <circle cx="73" cy="65.5" r="4" fill="#f3d39a"/>
+  <text x="87" y="70" fill="#f2d8ab" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2">PRINT-READY STUDIO</text>
+  <text x="58" y="151" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" letter-spacing="-1">Calligraphy</text>
+  <text x="58" y="205" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="700" letter-spacing="-1">Practice Paper</text>
+  <rect x="58" y="229" width="46" height="3" rx="1.5" fill="#f3d39a"/>
+  <text x="58" y="266" fill="#d4e8e4" font-family="PingFang SC, Noto Sans CJK SC, Arial, sans-serif" font-size="17" letter-spacing="2">练字帖 · 自由排版，认真落笔</text>
+
+  <g transform="translate(828 24) rotate(8 150 145)" filter="url(#shadow)">
+    <rect x="0" y="0" width="282" height="305" rx="11" fill="url(#paper)"/>
+    <rect x="20" y="20" width="242" height="265" rx="2" fill="none" stroke="#d3cabb"/>
+    <path d="M20 108H262M20 196H262M101 20V285M181 20V285" fill="none" stroke="#b8aaa0" stroke-width="1.3"/>
+    <path d="M20 64H262M20 152H262M20 240H262M60 20V285M141 20V285M221 20V285" fill="none" stroke="#c5bbb0" stroke-width=".8" stroke-dasharray="4 4"/>
+    <text x="46" y="94" fill="#1b3337" font-family="Kaiti SC, KaiTi, Noto Serif CJK SC, serif" font-size="61">永</text>
+    <text x="128" y="94" fill="#9da8a4" font-family="Kaiti SC, KaiTi, Noto Serif CJK SC, serif" font-size="61">永</text>
+    <text x="47" y="183" fill="#1b3337" font-family="Kaiti SC, KaiTi, Noto Serif CJK SC, serif" font-size="61">春</text>
+    <text x="128" y="183" fill="#abb3aa" font-family="Kaiti SC, KaiTi, Noto Serif CJK SC, serif" font-size="61">春</text>
+    <text x="47" y="270" fill="#1b3337" font-family="Kaiti SC, KaiTi, Noto Serif CJK SC, serif" font-size="61">山</text>
+    <text x="128" y="270" fill="#b4baae" font-family="Kaiti SC, KaiTi, Noto Serif CJK SC, serif" font-size="61">山</text>
+  </g>
+</svg>

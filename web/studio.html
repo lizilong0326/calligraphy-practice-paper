@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>字帖工作台 · 练字帖</title>
+<meta name="description" content="练字帖：免费在线字帖生成器，支持田字格、米字格、拼音、英文与古诗练习，实时预览后打印或保存 PDF。">
+<link rel="stylesheet" href="assets/css/theme.css?v=3">
+<link rel="stylesheet" href="assets/css/fonts.css?v=1">
+<link rel="stylesheet" href="assets/css/app.css?v=5">
+<link rel="stylesheet" href="assets/css/phone.css?v=2">
+<link rel="stylesheet" href="assets/css/studio.css?v=3">
+<link rel="stylesheet" href="assets/css/pages.css?v=2">
+<link rel="stylesheet" href="assets/css/print.css" media="print">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23123643'/%3E%3Cpath d='M22 30h56M22 50h56M22 70h56M50 22v56' stroke='%23f3ce8e' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+</head>
+<body class="page-studio">
+
+<div class="paper-grain" aria-hidden="true"></div>
+
+<!-- ============ 顶栏 ============ -->
+<header class="topbar" id="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><rect x="4" y="4" width="32" height="32" rx="7"/><path d="M11 14h18M11 20h18M11 26h18M20 11v18"/></svg>
+      </span>
+      <span class="brand-text">
+        <strong>练字帖</strong>
+      </span>
+    </a>
+
+    <nav class="topnav" aria-label="主导航">
+      <a href="index.html">首页</a>
+      <a href="studio.html" class="is-active" aria-current="page">生成器</a>
+      <a href="gallery.html">模板库</a>
+
+      <a href="guide.html">使用说明</a>
+    </nav>
+
+    <div class="topbar-actions">
+      <button class="btn btn-ghost btn-sm" id="btnResetTop">重置</button>
+      <button class="btn btn-primary btn-sm" id="btnPrintTop">
+        <svg viewBox="0 0 24 24" class="btn-ico"><path d="M6.5 9V3.5h11V9M6.5 18H5a1.5 1.5 0 0 1-1.5-1.5V12A1.5 1.5 0 0 1 5 10.5h14A1.5 1.5 0 0 1 20.5 12v4.5A1.5 1.5 0 0 1 19 18h-1.5M6.5 14h11v6.5h-11z"/></svg>
+        打印 / 存 PDF
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ============ 工作台 ============ -->
+  <section class="studio" id="studio">
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">字帖工作台</h2>
+        <p class="section-desc">写下内容、调整版式，右侧即时看到成品。</p>
+      </div>
+      <div class="section-meta" id="studioMeta">—</div>
+    </div>
+
+    <div class="studio-grid">
+      <!-- 控制面板 -->
+      <aside class="panel" id="panel">
+        <div class="panel-top">
+          <button class="tpl-current" id="tplCurrent" type="button">
+            <span class="tpl-current-ico" id="tplCurrentIco"></span>
+            <span class="tpl-current-copy">
+              <b id="tplCurrentName">拼音田字格</b>
+              <small id="tplCurrentDesc">生字 + 拼音 + 描红</small>
+            </span>
+            <svg class="tpl-current-arrow" viewBox="0 0 16 16"><path d="M4 6.5 8 10.5 12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <div class="panel-scroll">
+          <!-- 内容 -->
+          <section class="block">
+            <div class="block-head">
+              <span class="block-title">练习内容</span>
+            </div>
+            <textarea id="textInput" class="content-input" spellcheck="false"
+              placeholder="输入要练习的内容，可用换行分段。&#10;例如：天地人你我他&#10;古诗、单词、拼音均可，系统会自动分段排版。"></textarea>
+            <div class="input-hint" id="inputHint" hidden></div>
+            <div class="quick-row">
+              <span class="quick-label">快捷</span>
+              <button class="quick" data-quick="name">姓名练习</button>
+              <button class="quick" data-quick="clear">清空</button>
+            </div>
+          </section>
+
+          <!-- 拼音校对 -->
+          <section class="block" id="pyBlock">
+            <div class="block-head">
+              <span class="block-title">拼音校对</span>
+              <span class="block-note" id="pyNote">点击拼音可切换多音字</span>
+            </div>
+            <div class="py-check" id="pyCheck"></div>
+          </section>
+
+          <!-- 设置 -->
+          <div id="panelSettings" class="settings"></div>
+        </div>
+
+        <div class="panel-foot">
+          <button class="btn btn-primary" id="btnPrint">
+            <svg viewBox="0 0 24 24" class="btn-ico"><path d="M6.5 9V3.5h11V9M6.5 18H5a1.5 1.5 0 0 1-1.5-1.5V12A1.5 1.5 0 0 1 5 10.5h14A1.5 1.5 0 0 1 20.5 12v4.5A1.5 1.5 0 0 1 19 18h-1.5M6.5 14h11v6.5h-11z"/></svg>
+            打印 / 存 PDF
+          </button>
+          <button class="btn btn-ghost" id="btnSavePreset">导出配置</button>
+        </div>
+      </aside>
+
+      <!-- 预览台 -->
+      <section class="stage">
+        <div class="stage-bar">
+          <div class="stage-bar-left">
+            <div class="seg-zoom">
+              <button class="icon-btn sm" id="zoomOut" title="缩小">
+                <svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg>
+              </button>
+              <span class="zoom-val" id="zoomVal">100%</span>
+              <button class="icon-btn sm" id="zoomIn" title="放大">
+                <svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg>
+              </button>
+            </div>
+            <button class="btn btn-ghost btn-xs" id="zoomFit">适应宽度</button>
+            <span class="stage-divider"></span>
+            <span class="stage-info" id="stageInfo">1 页</span>
+          </div>
+          <div class="stage-bar-right">
+            <span class="stage-hint" id="stageHint">打印时请勾选「背景图形」</span>
+          </div>
+        </div>
+        <div class="stage-canvas" id="canvas">
+          <div class="pages" id="pages"></div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <!-- ============ 模板库 ============ -->
+  <section class="gallery" id="gallery">
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">模板库</h2>
+        <p class="section-desc" id="galleryDesc">31 种常用字帖版式，点一下即可套用，再微调成自己的。</p>
+      </div>
+    </div>
+    <div class="tpl-grid" id="tplGrid"></div>
+  </section>
+
+</main>
+
+<div class="toasts" id="toasts"></div>
+
+<script src="assets/data/pinyin-data.js" defer></script>
+<script src="assets/js/core/pinyin.js" defer></script>
+<script src="assets/js/core/grids.js" defer></script>
+<script src="assets/js/core/templates.js?v=4" defer></script>
+<script src="assets/js/core/layout.js?v=2" defer></script>
+<script src="assets/js/core/render.js?v=5" defer></script>
+<script src="assets/js/core/store.js?v=2" defer></script>
+<script src="assets/js/ui/controls.js?v=4" defer></script>
+<script src="assets/js/ui/preview.js?v=1" defer></script>
+<script src="assets/js/ui/app.js?v=5" defer></script>
+</body>
+</html>
